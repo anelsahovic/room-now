@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Booking;
-use App\Models\Review;
 use App\Models\Room;
 use App\Models\User;
+use App\Models\Review;
+use App\Models\Booking;
+use App\Models\Facility;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
 use Database\Factories\ReviewFactory;
 use Database\Factories\BookingFactory;
 
@@ -34,6 +35,8 @@ class DatabaseSeeder extends Seeder
 
         Review::factory(30)->create();
 
+        $facilities = Facility::factory(50)->create();
+
         $rooms = Room::all();
 
         foreach ($rooms as $room) {
@@ -45,6 +48,19 @@ class DatabaseSeeder extends Seeder
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
+
+
+
+            }
+
+            for ($i = 0; $i < 5; $i++) { // Assuming each room has 3 images
+                DB::table('room_facilities')->insert([
+                    'room_id' => $room->id,
+                    'facility_id' => random_int(1, 50),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+
             }
         }
     }
