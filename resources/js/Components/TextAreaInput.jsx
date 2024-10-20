@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
-export default forwardRef(function TextInput(
-    { type = "text", className = "", isFocused = false, ...props },
+export default forwardRef(function TextAreaInput(
+    { className = "", isFocused = false, children, ...props },
     ref
 ) {
     const localRef = useRef(null);
@@ -17,14 +17,15 @@ export default forwardRef(function TextInput(
     }, [isFocused]);
 
     return (
-        <input
+        <textarea
             {...props}
-            type={type}
             className={
                 "rounded-md border-gray-300 shadow-sm focus:border-teal-700 focus:ring-teal-700 " +
                 className
             }
             ref={localRef}
-        />
+        >
+            {children}
+        </textarea>
     );
 });

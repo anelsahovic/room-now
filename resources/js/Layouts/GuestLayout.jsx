@@ -152,7 +152,7 @@ export default function GuestLayout({ header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className="">{children}</main>
         </div>
     );
 }

@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('room_id')->constrained('rooms', 'id')->cascadeOnDelete();
             $table->string('title');
             $table->text('comment')->nullable();
-            $table->decimal('rating', 6, 1);
+            $table->integer('rating');
 
             $table->timestamps();
         });

@@ -37,8 +37,8 @@ export default function AuthenticatedLayout({ header, children }) {
                                     Find Yourself A Room
                                 </NavLink>
                                 <NavLink
-                                    href={route("rooms.index")}
-                                    active={route().current("rooms.index")}
+                                    href={route("bookings.index")}
+                                    active={route().current("bookings.index")}
                                 >
                                     <CalendarDaysIcon className="mr-1 size-6" />
                                     My Bookings
@@ -154,18 +154,21 @@ export default function AuthenticatedLayout({ header, children }) {
                             href={route("dashboard")}
                             active={route().current("dashboard")}
                         >
+                            <CogIcon className="mr-1 size-6" />
                             Dashboard
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("rooms.index")}
                             active={route().current("rooms.index")}
                         >
-                            Rooms
+                            <MagnifyingGlassIcon className="mr-1 size-6" />
+                            Find Yourself A Room
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("bookings.index")}
                             active={route().current("bookings.index")}
                         >
+                            <CalendarDaysIcon className="mr-1 size-6" />
                             My Bookings
                         </ResponsiveNavLink>
                     </div>
